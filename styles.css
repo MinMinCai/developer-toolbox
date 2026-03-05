@@ -766,3 +766,151 @@ body.snippet-zoom-open {
 .confirm-actions {
   justify-content: flex-end;
 }
+/* Global RWD hardening */
+@media (max-width: 768px) {
+  .container {
+    width: min(100%, 94vw);
+  }
+
+  .site-header {
+    position: sticky;
+  }
+
+  .header-inner {
+    min-height: auto;
+    padding: 10px 0;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a,
+  .theme-toggle {
+    padding: 8px 11px;
+    font-size: 0.88rem;
+  }
+
+  main {
+    padding: 18px 0 34px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .hero-actions,
+  .row-actions {
+    gap: 8px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger,
+  button {
+    padding: 8px 11px;
+  }
+
+  .tool-grid,
+  .grid-2,
+  .snippet-list,
+  .value-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-fields > label,
+  .inline-fields > label.grow {
+    flex: 1 1 100%;
+  }
+
+  .snippet-toolbar-head {
+    align-items: stretch;
+  }
+
+  .snippet-toolbar-head .btn-primary {
+    width: 100%;
+  }
+
+  .snippet-pagination {
+    justify-content: center;
+  }
+
+  .page-info {
+    width: 100%;
+    text-align: center;
+    margin: 4px 0 0;
+  }
+
+  .modal-backdrop {
+    padding: 12px;
+  }
+
+  .modal-panel,
+  .confirm-panel {
+    width: min(100%, 96vw);
+    max-height: 92vh;
+    border-radius: 12px;
+  }
+
+  .modal-panel #snippetCode {
+    min-height: 260px;
+  }
+
+  .snippet-item.expanded {
+    width: 96vw;
+    max-height: 90vh;
+  }
+
+  .snippet-head h3 {
+    font-size: 1.02rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 1rem;
+  }
+
+  .page-intro h1,
+  .hero-copy h1 {
+    font-size: 1.35rem;
+    line-height: 1.28;
+  }
+
+  .hero-lead,
+  .page-intro p,
+  .tool-desc,
+  .status-text,
+  .tag-line {
+    font-size: 0.9rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  .snippet-code {
+    max-height: 170px;
+  }
+
+  .snippet-item {
+    padding: 12px;
+  }
+
+  .page-btn {
+    min-width: 32px;
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  .modal-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
