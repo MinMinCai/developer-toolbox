@@ -914,3 +914,50 @@ body.snippet-zoom-open {
     align-items: stretch;
   }
 }
+
+/* Snippets mobile overflow fix */
+.page-snippets,
+.snippet-main-card,
+.snippet-list,
+.snippet-item,
+.snippet-head,
+.snippet-head h3 {
+  min-width: 0;
+}
+
+.snippet-head h3,
+.tag-line,
+.badge {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .page-snippets {
+    overflow-x: clip;
+  }
+
+  .snippet-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .snippet-code {
+    max-width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    overflow-x: auto;
+  }
+
+  .snippet-pagination {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+  }
+}
