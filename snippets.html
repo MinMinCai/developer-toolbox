@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snippets | Developer Toolbox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Developer Toolbox</a>
+      <nav class="nav-links" aria-label="主要導覽">
+        <a href="tools.html">Tools</a>
+        <a class="active" href="snippets.html">Snippets</a>
+        <button id="themeToggle" class="theme-toggle" type="button">切換深色</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-snippets">
+    <section class="card page-intro">
+      <h1>Snippets 語法模板區</h1>
+      <p>建立與管理常用程式碼片段，快速搜尋與一鍵複製。</p>
+    </section>
+
+    <section class="snippet-layout">
+      <article class="card snippet-main-card">
+        <div class="snippet-toolbar-head">
+          <h2>Snippet 清單</h2>
+          <button id="openSnippetModalBtn" class="btn-primary" type="button">+ 新增 Snippet</button>
+        </div>
+
+        <div class="inline-fields search-bar">
+          <label class="grow">
+            搜尋（標題 / 內容 / Tag）
+            <input id="searchInput" type="text" placeholder="輸入關鍵字">
+          </label>
+          <label>
+            篩選分類
+            <select id="filterCategory">
+              <option value="all">全部</option>
+              <option value="JS">JS</option>
+              <option value="React">React</option>
+              <option value="SQL">SQL</option>
+              <option value="Cloud">Cloud</option>
+              <option value="Docker">Docker</option>
+              <option value="Git">Git</option>
+              <option value="Tracking">Tracking</option>
+              <option value="API">API</option>
+            </select>
+          </label>
+          <label>
+            每頁筆數
+            <select id="pageSizeSelect">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="snippetList" class="snippet-list"></div>
+        <div id="snippetPagination" class="snippet-pagination"></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="snippetModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal-panel card" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+      <div class="modal-head">
+        <h2 id="formTitle">新增 Snippet</h2>
+        <button id="closeSnippetModalBtn" class="btn-secondary" type="button">關閉</button>
+      </div>
+
+      <form id="snippetForm">
+        <input id="snippetId" type="hidden">
+
+        <label>
+          標題
+          <input id="snippetTitle" type="text" required placeholder="例如：Fetch JSON 範本">
+        </label>
+
+        <label>
+          分類
+          <select id="snippetCategory" required>
+            <option value="">請選擇分類</option>
+            <option value="JS">JS</option>
+            <option value="React">React</option>
+            <option value="SQL">SQL</option>
+            <option value="Cloud">Cloud</option>
+            <option value="Docker">Docker</option>
+              <option value="Git">Git</option>
+              <option value="Tracking">Tracking</option>
+            <option value="API">API</option>
+          </select>
+        </label>
+
+        <label>
+          Tag（以逗號分隔）
+          <input id="snippetTags" type="text" placeholder="例如：fetch, async, api">
+        </label>
+
+        <label>
+          內容
+          <textarea id="snippetCode" class="mono" rows="10" required placeholder="輸入程式碼片段"></textarea>
+        </label>
+
+        <div class="row-actions">
+          <button class="btn-primary" type="submit">儲存 Snippet</button>
+          <button id="cancelEditBtn" class="btn-secondary" type="button">取消</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+
+  <div id="confirmDeleteModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal-panel card confirm-panel" role="dialog" aria-modal="true" aria-labelledby="confirmDeleteTitle">
+      <div class="modal-head">
+        <h2 id="confirmDeleteTitle">確認刪除</h2>
+      </div>
+      <p id="confirmDeleteMessage" class="confirm-message">你確定要刪除這筆 snippet 嗎？</p>
+      <div class="row-actions confirm-actions">
+        <button id="cancelDeleteBtn" class="btn-secondary" type="button">取消</button>
+        <button id="confirmDeleteBtn" class="btn-danger" type="button">確認刪除</button>
+      </div>
+    </section>
+  </div>
+  <script src="common.js"></script>
+  <script src="snippets.js"></script>
+</body>
+</html>
+
+
+

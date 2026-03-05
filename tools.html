@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools | Developer Toolbox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Developer Toolbox</a>
+      <nav class="nav-links" aria-label="主要導覽">
+        <a class="active" href="tools.html">Tools</a>
+        <a href="snippets.html">Snippets</a>
+        <button id="themeToggle" class="theme-toggle" type="button">切換深色</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-tools">
+    <section class="card page-intro">
+      <h1>Tools 互動工具區</h1>
+      <p>輸入資料後立即驗證、格式化、執行與模擬。</p>
+    </section>
+
+    <section class="tool-grid">
+      <article class="card tool-card">
+        <h2>1. JSON Formatter</h2>
+        <p class="tool-desc">貼上 JSON 後可快速格式化或壓縮，若格式錯誤會顯示錯誤訊息，方便檢查資料結構。</p>
+        <textarea id="jsonInput" class="mono" rows="8" placeholder="貼上 JSON"></textarea>
+        <div class="row-actions">
+          <button id="jsonFormatBtn" class="btn-primary" type="button">格式化 JSON</button>
+          <button id="jsonMinifyBtn" class="btn-secondary" type="button">壓縮 JSON</button>
+        </div>
+        <p id="jsonStatus" class="status-text"></p>
+        <details id="jsonOutputWrap" open>
+          <summary>格式化結果（可折疊）</summary>
+          <pre id="jsonOutput" class="mono output-box"></pre>
+        </details>
+      </article>
+
+      <article class="card tool-card">
+        <h2>2. JS Snippet Runner</h2>
+        <p class="tool-desc">輸入 JavaScript 程式碼後按 Run，工具會執行程式並顯示 <code>console.log</code> 輸出。</p>
+        <textarea id="jsInput" class="mono" rows="8" placeholder="輸入 JavaScript 程式碼，使用 console.log 顯示輸出"></textarea>
+        <div class="row-actions">
+          <button id="jsRunBtn" class="btn-primary" type="button">Run</button>
+          <button id="jsClearBtn" class="btn-secondary" type="button">清除輸出</button>
+        </div>
+        <pre id="jsOutput" class="mono output-box"></pre>
+      </article>
+
+      <article class="card tool-card">
+        <h2>3. Regex Tester</h2>
+        <p class="tool-desc">輸入 Pattern 與 Flags，再貼上測試文字，即可查看是否匹配與高亮結果。</p>
+<details class="helper-box">
+  <summary>Flags 說明</summary>
+  <p>Flags 是加在 regex 後面的模式選項，可多個一起用（此輸入框請使用單反斜線，例如 `\d`）。</p>
+  <ul>
+    <li><code>g</code>：全域搜尋（找全部，不只第一個）</li>
+    <li><code>i</code>：忽略大小寫</li>
+    <li><code>m</code>：多行模式（<code>^</code>、<code>$</code> 作用在每一行）</li>
+    <li><code>s</code>：dotall（讓 <code>.</code> 可匹配換行）</li>
+    <li><code>u</code>：Unicode 模式（處理 Unicode 更正確）</li>
+  </ul>
+</details>
+        <div class="inline-fields">
+          <label>
+            Pattern
+            <input id="regexPattern" class="mono" type="text" placeholder="例如：\b\w+@\w+\.\w+\b">
+          </label>
+          <p class="input-hint mono">範例：Email `\b\w+@\w+\.\w+\b`、日期 `\d{4}-\d{2}-\d{2}`、網址 `https?:\/\/[^\s]+`</p>
+          <label>
+            Flags
+            <input id="regexFlags" class="mono" type="text" value="g" placeholder="例如：gi">
+          </label>
+          <p class="input-hint mono">常用：`g` 全域、`i` 忽略大小寫、`m` 多行</p>
+        </div>
+        <textarea id="regexText" class="mono" rows="7" placeholder="範例文字：&#10;Email: hello@example.com&#10;日期：2026-03-05&#10;網址：https://example.com/docs"></textarea>
+        <div class="row-actions">
+          <button id="regexTestBtn" class="btn-primary" type="button">測試 Regex</button>
+        </div>
+        <p id="regexStatus" class="status-text"></p>
+        <div id="regexPreview" class="output-box rich-output"></div>
+      </article>
+
+      <article class="card tool-card">
+        <h2>4. API Tester（簡化版）</h2>
+        <p class="tool-desc">用來快速發送 GET/POST 請求，可自訂 Headers 與 Body，並即時查看 API 回應內容。</p>
+        <div class="inline-fields">
+          <label>
+            Method
+            <select id="apiMethod">
+              <option>GET</option>
+              <option>POST</option>
+            </select>
+          </label>
+          <label class="grow">
+            URL
+            <input id="apiUrl" class="mono" type="text" placeholder="https://api.example.com/data">
+          </label>
+        </div>
+        <label>
+          Headers（JSON）
+          <textarea id="apiHeaders" class="mono" rows="4" placeholder='{"Content-Type":"application/json"}'></textarea>
+        </label>
+        <label>
+          Body（JSON，GET 可留空）
+          <textarea id="apiBody" class="mono" rows="4" placeholder='{"key":"value"}'></textarea>
+        </label>
+        <div class="row-actions">
+          <button id="apiSendBtn" class="btn-primary" type="button">送出請求</button>
+        </div>
+        <p id="apiStatus" class="status-text"></p>
+        <pre id="apiResponse" class="mono output-box"></pre>
+      </article>
+
+      <article class="card tool-card">
+        <h2>5. dataLayer Simulator</h2>
+        <p class="tool-desc">輸入事件名稱與參數後模擬 <code>dataLayer.push</code>，適合驗證追蹤事件格式是否正確。</p>
+        <label>
+          Event Name
+          <input id="dlEvent" class="mono" type="text" placeholder="例如: signup_submit">
+        </label>
+        <label>
+          Parameters（JSON）
+          <textarea id="dlParams" class="mono" rows="5" placeholder='{"plan":"pro","source":"landing"}'></textarea>
+        </label>
+        <div class="row-actions">
+          <button id="dlPushBtn" class="btn-primary" type="button">模擬 dataLayer.push</button>
+          <button id="dlClearBtn" class="btn-secondary" type="button">清除紀錄</button>
+        </div>
+        <p id="dlStatus" class="status-text"></p>
+        <pre id="dlOutput" class="mono output-box"></pre>
+      </article>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="tools.js"></script>
+</body>
+</html>
+
+
+
+
+
+

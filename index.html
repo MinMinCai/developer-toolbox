@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Toolbox | 開發效率平台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html">Developer Toolbox</a>
+      <nav class="nav-links" aria-label="主要導覽">
+        <a class="active" href="index.html">首頁</a>
+        <a href="tools.html">Tools</a>
+        <a href="snippets.html">Snippets</a>
+        <button id="themeToggle" class="theme-toggle" type="button">切換深色</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-home">
+    <section class="home-hero card">
+      <div class="hero-copy">
+        <p class="eyebrow">Developer Toolbox</p>
+        <h1>Developer Toolbox 開發效率平台</h1>
+        <p class="hero-lead">
+          用一個平台處理資料格式化、API 測試、Regex 驗證與 dataLayer 模擬，
+          同時集中管理常用 snippets，減少切換工具造成的中斷。
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="tools.html">前往 Tools 互動工具區</a>
+          <a class="btn-secondary" href="snippets.html">前往 Snippets 模板區</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="chip chip-json">JSON</div>
+        <div class="chip chip-api">API</div>
+        <div class="chip chip-regex">Regex</div>
+        <div class="chip chip-code">Snippet</div>
+        <div class="visual-grid"></div>
+      </div>
+    </section>
+
+    <section class="value-strip">
+      <article class="value-card card">
+        <h2>一站式開發流程</h2>
+        <p>測試、驗證、模擬、儲存模板都在同一個空間完成。</p>
+      </article>
+      <article class="value-card card">
+        <h2>降低重工與錯誤</h2>
+        <p>常用語法與請求格式可重複利用，減少手動重打成本。</p>
+      </article>
+      <article class="value-card card">
+        <h2>在地化介面</h2>
+        <p>繁體中文（台灣）介面搭配深淺模式切換，閱讀負擔更低。</p>
+      </article>
+    </section>
+
+    <section class="grid-2 home-modules">
+      <article class="card module-card">
+        <h2>Tools 模組</h2>
+        <p>互動型工程工具，適合即時測試與資料檢查。</p>
+        <ul>
+          <li>JSON Formatter（格式化、錯誤提示）</li>
+          <li>JS Snippet Runner（執行並看 log）</li>
+          <li>Regex Tester（匹配與高亮）</li>
+          <li>API Tester（GET/POST + Headers/Body）</li>
+          <li>dataLayer Simulator（事件格式模擬）</li>
+        </ul>
+        <a class="inline-link" href="tools.html">進入 Tools</a>
+      </article>
+
+      <article class="card module-card">
+        <h2>Snippets 模組</h2>
+        <p>程式碼片段管理區，快速查找與複製常用模板。</p>
+        <ul>
+          <li>新增 / 編輯 / 刪除</li>
+          <li>分類（JS、SQL、Cloud、Tracking...）</li>
+          <li>Tag 與關鍵字搜尋</li>
+          <li>一鍵 Copy 與 localStorage 保存</li>
+        </ul>
+        <a class="inline-link" href="snippets.html">進入 Snippets</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>Developer Toolbox · 提升開發工作流程效率</small>
+  </footer>
+
+  <script src="common.js"></script>
+</body>
+</html>
+
