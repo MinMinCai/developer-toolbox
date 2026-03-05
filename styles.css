@@ -54,6 +54,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   background: color-mix(in srgb, var(--bg-soft) 78%, transparent);
   border-bottom: 1px solid var(--border);
@@ -961,3 +962,5 @@ body.snippet-zoom-open {
     padding-bottom: 4px;
   }
 }
+
+
